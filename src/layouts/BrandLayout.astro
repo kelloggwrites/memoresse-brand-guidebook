@@ -1,0 +1,180 @@
+---
+import '../styles/global.css'
+
+export interface Props {
+  title: string
+  description?: string
+  pageType?: 'hero' | 'standard' | 'tool'
+}
+
+const { title, description = "Memoresse Interactive Brand Guidebook", pageType = 'standard' } = Astro.props
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | Memoresse Brand Guide</title>
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Recoleta:wght@400;600;700&display=swap" as="style" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" as="style" />
+    
+    <!-- Open Graph / Social sharing -->
+    <meta property="og:title" content={`${title} | Memoresse Brand Guide`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    
+    <!-- Accessibility -->
+    <meta name="theme-color" content="#b2c7b9" />
+  </head>
+
+  <body class="font-content text-memoresse-stone-ink bg-memoresse-warm-white antialiased">
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 btn-primary">
+      Skip to main content
+    </a>
+
+    <!-- Header -->
+    <header class="bg-memoresse-off-white border-b border-memoresse-memory-stone/10 sticky top-0 z-40 backdrop-blur-brand">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <!-- Logo/Brand -->
+          <div class="flex items-center space-x-4">
+            <a href="/" class="flex items-center space-x-3 hover-lift">
+              <!-- Placeholder for Memoresse logo -->
+              <div class="w-8 h-8 bg-memoresse-sage-whisper rounded-md flex items-center justify-center">
+                <span class="text-memoresse-stone-ink font-bold text-sm">M</span>
+              </div>
+              <span class="font-heading font-semibold text-lg text-memoresse-stone-ink">
+                Brand Guide
+              </span>
+            </a>
+          </div>
+
+          <!-- Navigation -->
+          <nav class="hidden md:flex items-center space-x-8">
+            <a href="/" class="text-memoresse-memory-stone hover:text-memoresse-stone-ink transition-colors">
+              Overview
+            </a>
+            <a href="/logos" class="text-memoresse-memory-stone hover:text-memoresse-stone-ink transition-colors">
+              Logos
+            </a>
+            <a href="/colors" class="text-memoresse-memory-stone hover:text-memoresse-stone-ink transition-colors">
+              Colors
+            </a>
+            <a href="/typography" class="text-memoresse-memory-stone hover:text-memoresse-stone-ink transition-colors">
+              Typography
+            </a>
+            <a href="/assets" class="text-memoresse-memory-stone hover:text-memoresse-stone-ink transition-colors">
+              Assets
+            </a>
+          </nav>
+
+          <!-- Mobile menu button -->
+          <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-memoresse-memory-stone hover:text-memoresse-stone-ink hover:bg-memoresse-lavender-mist/20 transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden pb-4">
+          <div class="flex flex-col space-y-2">
+            <a href="/" class="text-memoresse-memory-stone hover:text-memoresse-stone-ink px-3 py-2 rounded-md transition-colors">
+              Overview
+            </a>
+            <a href="/logos" class="text-memoresse-memory-stone hover:text-memoresse-stone-ink px-3 py-2 rounded-md transition-colors">
+              Logos
+            </a>
+            <a href="/colors" class="text-memoresse-memory-stone hover:text-memoresse-stone-ink px-3 py-2 rounded-md transition-colors">
+              Colors
+            </a>
+            <a href="/typography" class="text-memoresse-memory-stone hover:text-memoresse-stone-ink px-3 py-2 rounded-md transition-colors">
+              Typography
+            </a>
+            <a href="/assets" class="text-memoresse-memory-stone hover:text-memoresse-stone-ink px-3 py-2 rounded-md transition-colors">
+              Assets
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class={`min-h-screen ${pageType === 'hero' ? 'pt-0' : 'pt-8'}`}>
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-memoresse-stone-ink text-memoresse-off-white py-12 mt-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Brand Mission -->
+          <div>
+            <h3 class="font-heading text-lg font-semibold mb-4">Sacred Mission</h3>
+            <p class="text-memoresse-memory-stone-light text-sm leading-relaxed">
+              Technology should disappear so human stories can shine through - 
+              creating joy while preserving memories across generations.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h3 class="font-heading text-lg font-semibold mb-4">Brand Resources</h3>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a href="/logos" class="text-memoresse-memory-stone-light hover:text-memoresse-sage-whisper transition-colors">
+                  Logo Downloads
+                </a>
+              </li>
+              <li>
+                <a href="/colors" class="text-memoresse-memory-stone-light hover:text-memoresse-sage-whisper transition-colors">
+                  Color Palette
+                </a>
+              </li>
+              <li>
+                <a href="/typography" class="text-memoresse-memory-stone-light hover:text-memoresse-sage-whisper transition-colors">
+                  Typography Guide
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h3 class="font-heading text-lg font-semibold mb-4">Questions?</h3>
+            <p class="text-memoresse-memory-stone-light text-sm">
+              For brand guidance or asset requests, reach out to the Memoresse team.
+            </p>
+          </div>
+        </div>
+
+        <div class="border-t border-memoresse-memory-stone/20 mt-8 pt-8 text-center">
+          <p class="text-memoresse-memory-stone text-sm">
+            © 2025 Memoresse. Creating technology that honors family stories.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile menu toggle script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const mobileMenuButton = document.getElementById('mobile-menu-button')
+        const mobileMenu = document.getElementById('mobile-menu')
+        
+        if (mobileMenuButton && mobileMenu) {
+          mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden')
+          })
+        }
+      })
+    </script>
+  </body>
+</html>
+

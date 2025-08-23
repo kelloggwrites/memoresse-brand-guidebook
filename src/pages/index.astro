@@ -1,16 +1,85 @@
 ---
-
+// Simple test page
 ---
 
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memoresse Brand Guide</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f8f7f6;
+            color: #2d2b2c;
+        }
+        h1 {
+            color: #b2c7b9;
+            font-size: 2.5rem;
+        }
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .btn {
+            background: #8d6e8d;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Memoresse Brand Guide</h1>
+    
+    <div class="card">
+        <h2>Sacred Mission</h2>
+        <p>To help families preserve memories and stories for generations, creating a private and secure family intelligence through effortless media sharing and engaging conversations.</p>
+    </div>
+
+    <div class="card">
+        <h2>Brand Colors</h2>
+        <div style="display: flex; gap: 1rem; margin: 1rem 0;">
+            <div style="background: #b2c7b9; width: 60px; height: 60px; border-radius: 4px;"></div>
+            <div>
+                <strong>Sage Whisper</strong><br>
+                #b2c7b9 - Primary
+            </div>
+        </div>
+        <div style="display: flex; gap: 1rem; margin: 1rem 0;">
+            <div style="background: #8d6e8d; width: 60px; height: 60px; border-radius: 4px;"></div>
+            <div>
+                <strong>Dusty Plum</strong><br>
+                #8d6e8d - Secondary
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Assets Ready</h2>
+        <p>✅ 21 brand assets organized</p>
+        <p>✅ Logo collection (7 files)</p>
+        <p>✅ Icons and textures</p>
+        <p>✅ Color system</p>
+        <a href="#" class="btn">Download Assets (Coming Soon)</a>
+    </div>
+
+    <div class="card">
+        <h2>Development Status</h2>
+        <p><strong>Server:</strong> Running at http://localhost:3000</p>
+        <p><strong>Framework:</strong> Astro + Tailwind CSS</p>
+        <p><strong>Assets:</strong> Organized and ready</p>
+    </div>
+</body>
 </html>

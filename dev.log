@@ -1,0 +1,16 @@
+
+> memoresse-interactive-guidebook@0.0.1 dev
+> astro dev
+
+16:17:37 [types] Generated 1ms
+16:17:37 [content] Syncing content
+16:17:37 [content] Synced content
+16:17:37 [vite] Re-optimizing dependencies because vite config has changed
+16:17:37 [vite] Port 4321 is in use, trying another one...
+
+ astro  v5.13.3 ready in 194 ms
+
+┃ Local    http://localhost:4322/
+┃ Network  use --host to expose
+
+16:17:37 watching for file changes...

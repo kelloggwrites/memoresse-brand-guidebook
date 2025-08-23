@@ -1,0 +1,168 @@
+@import 'tailwindcss';
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Recoleta:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* Custom font imports for PT Serif Enhanced would go here */
+/* For now, falling back to PT Serif from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply antialiased;
+  font-family: 'Libre Baskerville', serif;
+  color: #2d2b2c;
+  background-color: #f8f7f6;
+}
+
+/* Sacred mission typography hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Recoleta', serif;
+}
+
+h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: #2d2b2c;
+}
+
+h2 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  color: #2d2b2c;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  font-weight: 500;
+  color: #2d2b2c;
+}
+
+/* Chat-style elements use PT Serif Enhanced */
+.chat-text {
+  font-family: 'PT Serif', serif;
+}
+
+/* Interactive elements reflect brand warmth */
+button, .interactive {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+a:focus-visible,
+[tabindex]:focus-visible {
+  @apply outline-2 outline-offset-2 outline-memoresse-dusty-plum;
+}
+
+/* Brand-specific hover effects */
+.hover-lift {
+  @apply transition-transform duration-300 ease-brand hover:scale-105;
+}
+
+.hover-glow {
+  @apply transition-shadow duration-300 ease-brand hover:shadow-brand-medium;
+}
+
+/* Asset download styling */
+.asset-card {
+  @apply bg-memoresse-off-white border border-memoresse-memory-stone/20;
+  @apply rounded-lg p-6 transition-all duration-300 ease-brand;
+  @apply hover:shadow-brand-soft hover:border-memoresse-sage-whisper/40;
+}
+
+/* Modal and overlay styles */
+.modal-overlay {
+  @apply fixed inset-0 bg-memoresse-stone-ink/50 backdrop-blur-brand;
+  @apply flex items-center justify-center p-4;
+  @apply animate-fade-in;
+}
+
+.modal-content {
+  @apply bg-memoresse-off-white rounded-xl p-8 max-w-md w-full;
+  @apply shadow-brand-strong border border-memoresse-sage-whisper/30;
+  @apply animate-scale-gentle;
+}
+
+/* Button styles reflecting brand hierarchy */
+.btn-primary {
+  @apply bg-memoresse-dusty-plum text-memoresse-off-white;
+  @apply px-6 py-3 rounded-lg font-medium;
+  @apply hover:bg-memoresse-dusty-plum-dark;
+  @apply focus:ring-2 focus:ring-memoresse-dusty-plum/50;
+  @apply transition-all duration-300 ease-brand;
+}
+
+.btn-secondary {
+  @apply bg-memoresse-sage-whisper text-memoresse-stone-ink;
+  @apply px-6 py-3 rounded-lg font-medium;
+  @apply hover:bg-memoresse-sage-whisper-dark;
+  @apply focus:ring-2 focus:ring-memoresse-sage-whisper/50;
+  @apply transition-all duration-300 ease-brand;
+}
+
+.btn-tertiary {
+  @apply bg-memoresse-lavender-mist text-memoresse-stone-ink;
+  @apply px-6 py-3 rounded-lg font-medium;
+  @apply hover:bg-memoresse-lavender-mist-dark;
+  @apply focus:ring-2 focus:ring-memoresse-lavender-mist/50;
+  @apply transition-all duration-300 ease-brand;
+}
+
+/* Color palette preview styles */
+.color-swatch {
+  @apply w-16 h-16 rounded-lg border-2 border-memoresse-memory-stone/20;
+  @apply cursor-pointer transition-all duration-300 ease-brand;
+  @apply hover:scale-110 hover:shadow-brand-medium;
+}
+
+/* Typography demonstration styles */
+.font-demo {
+  @apply p-4 bg-memoresse-off-white rounded-lg border border-memoresse-memory-stone/10;
+  @apply transition-all duration-300 ease-brand;
+}
+
+/* Print styles for brand consistency */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    @apply text-black bg-white;
+  }
+  
+  .asset-card {
+    @apply border border-gray-300;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .asset-card {
+    @apply border-2 border-memoresse-stone-ink;
+  }
+  
+  button {
+    @apply border-2 border-memoresse-stone-ink;
+  }
+}

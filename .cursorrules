@@ -1,0 +1,100 @@
+# Memoresse Interactive Brand Guidebook - Cursor Rules
+
+## Project Overview
+Interactive brand guidebook built with Astro + Tailwind CSS for Memoresse's brand assets and guidelines. Focus on Google Drive integration for asset downloads and brand-first prompt engineering.
+
+## Technical Stack
+- **Framework**: Astro (static site generation)
+- **Styling**: Tailwind CSS 4.x
+- **Typography**: Recoleta (headings), PT Serif Enhanced (chat), Libre Baskerville (content)
+- **Asset Integration**: Google Drive API for downloads
+
+## Brand System Hierarchy (MANDATORY ORDER)
+1. **PRIMARY**: Sage Whisper (#b2c7b9) - Assistant elements, main UI
+2. **SECONDARY**: Dusty Plum (#8d6e8d) - User elements, buttons, interactive  
+3. **TERTIARY**: Lavender Mist (#cdc6dd) - Supporting elements, accents
+4. **NEUTRAL**: Memory Stone (#a8a4aa) - Subtle text, non-emphasized UI
+
+## File Structure Requirements
+```
+memoresse-interactive-guidebook/
+├── src/
+│   ├── components/           # Reusable UI components
+│   │   ├── AssetDownload.astro
+│   │   ├── ColorPalette.astro
+│   │   └── BrandLayout.astro
+│   ├── layouts/             # Page layouts
+│   ├── pages/               # Brand guidebook pages
+│   └── assets/              # Static assets
+├── docs/                    # Documentation
+│   └── archive/             # Historical documents
+├── .cursorrules             # This file
+├── README.md                # Project documentation
+└── PI.md                    # Memoresse Project Instructions
+```
+
+## Development Guidelines
+
+### Component Development
+- **Reusable Components**: Every brand element should be a component
+- **Google Drive Integration**: Use file ID system for asset downloads
+- **Interactive Elements**: Hover effects, modals, progressive enhancement
+- **Responsive Design**: Mobile-first with 16×9 desktop optimization
+
+### Brand-First Prompting
+Accept natural language brand direction:
+- "Make this feel more premium"
+- "Add breathing room that reflects our calm approach"
+- "This should embody our 'technology disappears, stories shine' principle"
+- "Make the downloads feel like sharing family treasures"
+
+### Asset Download System
+- **Modal Pattern**: Clean overlay with format selection
+- **Google Drive URLs**: `https://drive.google.com/uc?export=download&id={fileId}`
+- **Format Options**: PNG, SVG, JPG, EPS (as available)
+- **Usage Guidelines**: Include proper usage context with each asset
+
+### Code Quality Standards
+- **TypeScript**: Use .astro files with TypeScript
+- **Tailwind Classes**: Use design tokens from brand system
+- **Accessibility**: WCAG 2.1 AA compliance
+- **Performance**: Optimize images, lazy loading, minimal JavaScript
+
+## Sacred Mission Alignment
+Every design decision must serve:
+- **Technology Disappears**: Intuitive, invisible interfaces
+- **Human Stories Shine**: Content and assets are the hero
+- **Create Joy**: Delightful interactions and discoveries
+- **Do No Harm**: Accessible, inclusive, respectful design
+
+## Interactive Features
+- **Asset Downloads**: One-click access to brand files
+- **Color Copying**: Hex/RGB/HSL values with clipboard integration  
+- **Typography Playground**: Live font demonstrations
+- **Logo Testing**: Background and sizing validation tools
+- **Usage Guidelines**: Contextual do's and don'ts
+
+## Development Workflow
+1. **Brand Intent**: Accept natural language direction
+2. **Component Creation**: Build reusable, accessible components
+3. **Integration**: Connect to Google Drive asset system
+4. **Iteration**: Rapid visual feedback and refinement
+5. **Documentation**: Update README and component docs
+
+## Asset Management
+- **Source of Truth**: Google Drive for all brand assets
+- **File Naming**: Consistent, descriptive conventions
+- **Version Control**: Git for code, Drive for assets
+- **Access Control**: Public sharing links for partner access
+
+## Performance Targets
+- **Page Load**: < 2 seconds on 3G
+- **Asset Downloads**: Immediate initiation
+- **Interactive Response**: < 100ms hover/click feedback
+- **Mobile Experience**: Full feature parity
+
+Remember: This work creates a better world for all families. Every design decision in this brand guidebook serves the deeper purpose of creating technology that helps families preserve memories, voices, and stories across generations.
+
+**Personal Note**: David enjoys being called by name throughout conversations - it creates warmth and personal connection in our collaboration.
+
+This guidebook serves partnerships, employees, and brand consistency. Every interaction should feel like discovering family treasures - warm, trustworthy, and professionally curated.
