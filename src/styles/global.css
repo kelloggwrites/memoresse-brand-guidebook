@@ -62,88 +62,66 @@ button, .interactive {
 button:focus-visible,
 a:focus-visible,
 [tabindex]:focus-visible {
-  @apply outline-2 outline-offset-2 outline-memoresse-dusty-plum;
+  outline: 2px solid #8d6e8d;
+  outline-offset: 2px;
 }
 
 /* Brand-specific hover effects */
 .hover-lift {
-  @apply transition-transform duration-300 ease-brand hover:scale-105;
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: scale(1.05);
 }
 
 .hover-glow {
-  @apply transition-shadow duration-300 ease-brand hover:shadow-brand-medium;
+  transition: box-shadow 0.3s ease;
 }
 
-/* Asset download styling */
+.hover-glow:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Simplified styles for now - will expand later */
 .asset-card {
-  @apply bg-memoresse-off-white border border-memoresse-memory-stone/20;
-  @apply rounded-lg p-6 transition-all duration-300 ease-brand;
-  @apply hover:shadow-brand-soft hover:border-memoresse-sage-whisper/40;
+  background-color: #f8f7f6;
+  border: 1px solid rgba(168, 164, 170, 0.2);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
 }
 
-/* Modal and overlay styles */
-.modal-overlay {
-  @apply fixed inset-0 bg-memoresse-stone-ink/50 backdrop-blur-brand;
-  @apply flex items-center justify-center p-4;
-  @apply animate-fade-in;
+.asset-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border-color: rgba(178, 199, 185, 0.4);
 }
 
-.modal-content {
-  @apply bg-memoresse-off-white rounded-xl p-8 max-w-md w-full;
-  @apply shadow-brand-strong border border-memoresse-sage-whisper/30;
-  @apply animate-scale-gentle;
-}
-
-/* Button styles reflecting brand hierarchy */
+/* Button styles */
 .btn-primary {
-  @apply bg-memoresse-dusty-plum text-memoresse-off-white;
-  @apply px-6 py-3 rounded-lg font-medium;
-  @apply hover:bg-memoresse-dusty-plum-dark;
-  @apply focus:ring-2 focus:ring-memoresse-dusty-plum/50;
-  @apply transition-all duration-300 ease-brand;
+  background-color: #8d6e8d;
+  color: #f8f7f6;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
-.btn-secondary {
-  @apply bg-memoresse-sage-whisper text-memoresse-stone-ink;
-  @apply px-6 py-3 rounded-lg font-medium;
-  @apply hover:bg-memoresse-sage-whisper-dark;
-  @apply focus:ring-2 focus:ring-memoresse-sage-whisper/50;
-  @apply transition-all duration-300 ease-brand;
+.btn-primary:hover {
+  background-color: #7a5f7a;
 }
 
-.btn-tertiary {
-  @apply bg-memoresse-lavender-mist text-memoresse-stone-ink;
-  @apply px-6 py-3 rounded-lg font-medium;
-  @apply hover:bg-memoresse-lavender-mist-dark;
-  @apply focus:ring-2 focus:ring-memoresse-lavender-mist/50;
-  @apply transition-all duration-300 ease-brand;
-}
-
-/* Color palette preview styles */
-.color-swatch {
-  @apply w-16 h-16 rounded-lg border-2 border-memoresse-memory-stone/20;
-  @apply cursor-pointer transition-all duration-300 ease-brand;
-  @apply hover:scale-110 hover:shadow-brand-medium;
-}
-
-/* Typography demonstration styles */
-.font-demo {
-  @apply p-4 bg-memoresse-off-white rounded-lg border border-memoresse-memory-stone/10;
-  @apply transition-all duration-300 ease-brand;
-}
-
-/* Print styles for brand consistency */
+/* Print styles */
 @media print {
   .no-print {
     display: none !important;
   }
   
   body {
-    @apply text-black bg-white;
-  }
-  
-  .asset-card {
-    @apply border border-gray-300;
+    color: black !important;
+    background-color: white !important;
   }
 }
 
@@ -153,16 +131,5 @@ a:focus-visible,
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  .asset-card {
-    @apply border-2 border-memoresse-stone-ink;
-  }
-  
-  button {
-    @apply border-2 border-memoresse-stone-ink;
   }
 }
