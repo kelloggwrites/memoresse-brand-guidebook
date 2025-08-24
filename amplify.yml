@@ -15,9 +15,9 @@ frontend:
         - echo "=== BUILDING ASTRO BRAND GUIDEBOOK ==="
         - npm run build
         - echo "Build completed"
-        - ls -la .amplify-hosting/static/
+        - ls -la dist/
   artifacts:
-    baseDirectory: .amplify-hosting/static
+    baseDirectory: dist
     files:
       - '**/*'
   cache:
