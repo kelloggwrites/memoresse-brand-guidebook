@@ -3,19 +3,51 @@ frontend:
   phases:
     preBuild:
       commands:
-        - echo "=== MEMORESSE BRAND GUIDEBOOK BUILD ==="
+        - echo "=== MEMORESSE BRAND GUIDEBOOK DEBUG BUILD ==="
+        - echo "Build started at $(date)"
+        - echo "Current working directory: $(pwd)"
+        - echo "Available disk space:"
+        - df -h
+        - echo "=== NODE ENVIRONMENT ==="
         - nvm use 20
-        - echo "Node version check"
-        - node --version
-        - npm --version
-        - echo "Installing dependencies"
-        - npm ci --cache .npm --prefer-offline
+        - echo "Node version: $(node --version)"
+        - echo "NPM version: $(npm --version)"
+        - echo "NPM config:"
+        - npm config list
+        - echo "=== PACKAGE.JSON CHECK ==="
+        - cat package.json
+        - echo "=== INSTALLING DEPENDENCIES ==="
+        - npm ci --cache .npm --prefer-offline --verbose
+        - echo "=== DEPENDENCY VERIFICATION ==="
+        - npm list --depth=0
+        - echo "Node modules size:"
+        - du -sh node_modules/
     build:
       commands:
-        - echo "=== BUILDING ASTRO BRAND GUIDEBOOK ==="
-        - npm run build
-        - echo "Build completed"
-        - ls -la dist/
+        - echo "=== ASTRO BUILD PROCESS ==="
+        - echo "Build started at $(date)"
+        - echo "Current directory contents:"
+        - ls -la
+        - echo "=== ASTRO CONFIG CHECK ==="
+        - cat astro.config.mjs
+        - echo "=== RUNNING BUILD ==="
+        - npm run build --verbose
+        - echo "=== BUILD VERIFICATION ==="
+        - echo "Build completed at $(date)"
+        - echo "Checking dist directory:"
+        - ls -la dist/ || echo "ERROR: dist directory not found!"
+        - echo "Dist directory size:"
+        - du -sh dist/ || echo "ERROR: Cannot measure dist size"
+        - echo "Index.html check:"
+        - ls -la dist/index.html || echo "ERROR: index.html missing!"
+        - echo "Assets check:"
+        - ls -la dist/_astro/ || echo "WARNING: _astro directory missing"
+        - echo "=== FINAL VERIFICATION ==="
+        - find dist -type f -name "*.html" -exec echo "HTML file: {}" \;
+        - find dist -type f -name "*.css" -exec echo "CSS file: {}" \;
+        - find dist -type f -name "*.js" -exec echo "JS file: {}" \;
+        - echo "Total files in dist:"
+        - find dist -type f | wc -l
   artifacts:
     baseDirectory: dist
     files:
