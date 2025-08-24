@@ -3,77 +3,15 @@ frontend:
   phases:
     preBuild:
       commands:
-        - echo "=== MEMORESSE BRAND GUIDEBOOK DEBUG BUILD ==="
-        - echo "Build started at $(date)"
-        - echo "Current working directory: $(pwd)"
-        - echo "Available disk space:"
-        - df -h
-        - echo "=== NODE ENVIRONMENT ==="
-        - nvm use 20
-        - echo "Node version: $(node --version)"
-        - echo "NPM version: $(npm --version)"
-        - echo "NPM config:"
-        - npm config list
-        - echo "=== PACKAGE.JSON CHECK ==="
-        - cat package.json
-        - echo "=== INSTALLING DEPENDENCIES ==="
-        - npm ci --cache .npm --prefer-offline --verbose
-        - echo "=== DEPENDENCY VERIFICATION ==="
-        - npm list --depth=0
-        - echo "Node modules size:"
-        - du -sh node_modules/
+        - nvm use 18
+        - npm ci
     build:
       commands:
-        - echo "=== ASTRO BUILD PROCESS ==="
-        - echo "Build started at $(date)"
-        - echo "Current directory contents:"
-        - ls -la
-        - echo "=== ASTRO CONFIG CHECK ==="
-        - cat astro.config.mjs
-        - echo "=== RUNNING BUILD ==="
-        - npm run build --verbose
-        - echo "=== BUILD VERIFICATION ==="
-        - echo "Build completed at $(date)"
-        - echo "Checking dist directory:"
-        - ls -la dist/ || echo "ERROR: dist directory not found!"
-        - echo "Dist directory size:"
-        - du -sh dist/ || echo "ERROR: Cannot measure dist size"
-        - echo "Index.html check:"
-        - ls -la dist/index.html || echo "ERROR: index.html missing!"
-        - echo "Assets check:"
-        - ls -la dist/_astro/ || echo "WARNING: _astro directory missing"
-        - echo "=== FINAL VERIFICATION ==="
-        - find dist -type f -name "*.html" -exec echo "HTML file: {}" \;
-        - find dist -type f -name "*.css" -exec echo "CSS file: {}" \;
-        - find dist -type f -name "*.js" -exec echo "JS file: {}" \;
-        - echo "Total files in dist:"
-        - find dist -type f | wc -l
+        - npm run build
   artifacts:
     baseDirectory: dist
     files:
       - '**/*'
   cache:
     paths:
-      - .npm/**/*
       - node_modules/**/*
-  customHeaders:
-    - pattern: '/assets/**'
-      headers:
-        - key: 'Cache-Control'
-          value: 'public, max-age=31536000, immutable'
-    - pattern: '/_astro/**'
-      headers:
-        - key: 'Cache-Control'
-          value: 'public, max-age=31536000, immutable'
-    - pattern: '**/*.png'
-      headers:
-        - key: 'Cache-Control'
-          value: 'public, max-age=2592000'
-    - pattern: '**/*.jpg'
-      headers:
-        - key: 'Cache-Control'
-          value: 'public, max-age=2592000'
-    - pattern: '**/*.svg'
-      headers:
-        - key: 'Cache-Control'
-          value: 'public, max-age=2592000'
