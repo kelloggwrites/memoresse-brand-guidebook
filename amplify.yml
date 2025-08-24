@@ -13,27 +13,27 @@ frontend:
       commands:
         - echo "=== BUILDING ASTRO BRAND GUIDEBOOK ==="
         - echo "--- Clean previous builds ---"
-        - rm -rf dist
+        - rm -rf .amplify-hosting
         - echo "--- Building Astro static site ---"
         - npm run build
         - echo "--- Verify build output ---"
         - |
-          if [ ! -d "dist" ]; then
-            echo "ERROR: dist directory not created!"
+          if [ ! -d ".amplify-hosting/static" ]; then
+            echo "ERROR: .amplify-hosting/static directory not created!"
             ls -la . || echo "No files in root"
             exit 1
           fi
         - echo "--- Verify assets ---"
-        - ls -la dist/
+        - ls -la .amplify-hosting/static/
         - |
-          if [ ! -f "dist/index.html" ]; then
+          if [ ! -f ".amplify-hosting/static/index.html" ]; then
             echo "ERROR: index.html not found!"
             exit 1
           fi
         - echo "--- Build completed successfully ---"
         - echo "Brand guidebook ready for deployment!"
   artifacts:
-    baseDirectory: dist
+    baseDirectory: .amplify-hosting/static
     files:
       - '**/*'
   cache:
@@ -65,4 +65,5 @@ frontend:
       headers:
         - key: 'Cache-Control'
           value: 'public, max-age=2592000'
+
 
