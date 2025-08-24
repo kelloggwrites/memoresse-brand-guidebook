@@ -1,5 +1,5 @@
 ---
-// Simplified hero page without external dependencies
+// Original Memoresse Brand Guidebook Page 1 - Lockbox Hero
 ---
 
 <!DOCTYPE html>
@@ -7,116 +7,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memoresse Brand Guidebook</title>
+    <title>Memoresse Brand Book - Page 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Recoleta:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            font-family: 'Recoleta', serif;
+            background: #000;
         }
         
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, #2d2b2c 0%, #4a4748 100%);
-            color: white;
+        .page {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('/src/assets/brand-assets/images/Page1-photo-memoresse-lockbox.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             overflow: hidden;
         }
         
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        
         .logo-container {
-            text-align: center;
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        .logo {
-            width: 200px;
-            height: 200px;
-            background: #f8f7f6;
-            border-radius: 50%;
-            margin: 0 auto 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: #b2c7b9;
-            font-weight: bold;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .logo:hover {
-            transform: scale(1.1) rotate(5deg);
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #f8f7f6;
-        }
-        
-        p {
-            font-size: 1.2rem;
-            opacity: 0.8;
-            max-width: 600px;
-            line-height: 1.6;
-        }
-        
-        .hint {
             position: absolute;
-            bottom: 2rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo-container:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+        
+        .logo-img {
+            height: 62px;
+            width: auto;
+            filter: brightness(0) saturate(100%) invert(98%) sepia(8%) saturate(0%) hue-rotate(180deg) brightness(105%) contrast(96%) drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+            /* CSS filter converts black logo to Off White (#fafafa) */
+            transition: all 0.3s ease;
+        }
+        
+        .logo-container:hover .logo-img {
+            filter: brightness(0) saturate(100%) invert(81%) sepia(13%) saturate(15%) hue-rotate(75deg) brightness(94%) contrast(89%) drop-shadow(0 6px 12px rgba(0,0,0,0.4));
+            /* Hover state converts to Sage Whisper (#b2c7b9) */
+        }
+        
+        .brand-guidebook-text {
+            position: absolute;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
-            opacity: 0.6;
-            animation: bounce 2s infinite;
+            font-family: 'Recoleta', serif;
+            font-size: 18px;
+            font-weight: 300;
+            color: #fafafa;
+            text-align: center;
+            letter-spacing: 1.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            text-transform: uppercase;
+            z-index: 2;
         }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        /* Subtle overlay to ensure text readability */
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.3));
+            z-index: 1;
         }
         
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
+        /* Responsive adjustments */
+        @media (max-width: 1400px) {
+            .logo-img {
+                height: 50px;
+            }
+            
+            .brand-guidebook-text {
+                font-size: 16px;
+                bottom: 30px;
+            }
         }
         
         @media (max-width: 768px) {
-            .logo {
-                width: 150px;
-                height: 150px;
-                font-size: 3rem;
+            .logo-img {
+                height: 30px;
             }
             
-            h1 {
-                font-size: 2rem;
-            }
-            
-            p {
-                font-size: 1rem;
-                padding: 0 1rem;
+            .brand-guidebook-text {
+                font-size: 14px;
+                bottom: 20px;
+                letter-spacing: 1px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="hero">
+    <div class="page">
+        <div class="overlay"></div>
         <div class="logo-container">
-            <div class="logo">M</div>
-            <h1>Memoresse</h1>
-            <p>Interactive Brand Guidebook<br>Preserving memories for generations</p>
+            <img src="/src/assets/brand-assets/logos/Memoresse-Logo-Full.png" alt="Memoresse Logo" class="logo-img">
         </div>
-        <div class="hint">
-            <p>↓ Scroll to explore</p>
-        </div>
+        <div class="brand-guidebook-text">Memoresse Brand Guidebook</div>
     </div>
 </body>
 </html>
